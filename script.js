@@ -1,19 +1,21 @@
 // debugger;
 
-let season = prompt("Please, enter season: winter or summer").toLowerCase().replaceAll(" ","");
+let season = prompt("Please, enter season: winter or summer");
 
 while (!(season === "winter" || season === "summer")) {
-    alert("Enter season: winter or summer");
+    if(season === null){
+        alert("Enter season: winter or summer");
+    }
     season = prompt("Please, enter season: winter or summer").toLowerCase().replaceAll(" ","");
 }
-console.log(season);
+// console.log(season);
 
 let category = prompt("Please, choose category in which you want to buy products: vegetables or fruits!").toLowerCase().replaceAll(" ","");
 while (!(category === "vegetables" || category === "fruits")) {
     alert("Enter category: vegetables or fruits");
     category = prompt("Please, choose category in which you want to buy products: vegetables or fruits!").toLowerCase().replaceAll(" ","");
 }
-console.log(category);
+// console.log(category);
 
 let product;
 if(category === "vegetables") {
@@ -29,7 +31,6 @@ if(category === "vegetables") {
         product = prompt("Choose product from category fruits: grapes, raspberry or coconut").toLowerCase().replaceAll(" ","");
     }
 }
-console.log(product);
 
 let count = parseInt(prompt(`Enter count of ${product}`));
 while (count <= 0) {
@@ -64,12 +65,12 @@ if(season === "winter") {
 } else if(season === "summer") {
     finalSum *= 0.8;
 }
-alert(`Final Sum is ${finalSum}`);
+// alert(`Final Sum is ${finalSum}`);
 document.write(`
 <div class="product">
-  <img src="images/vegetables/cabbage.svg" alt="cabbage" width="100" height="100">
+  <img src="images/${product}.svg" alt="photo" width="100" height="100">
   <p>Selected product: <b>${product}</b></p>
-  <p>Count of cabbages: <b>${count}</b></p>
+  <p>Count of ${product}: <b>${count}</b></p>
   <p>Selected period: <b>${season}</b></p>
   <p>Selected category: <b>${category}</b></p>
   <p>Final sum: <b>${finalSum}</b></p>
